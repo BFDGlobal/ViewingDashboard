@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BFD Global Dashboard</title>
+
+ 
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-pzjw8f+ua7Kw1TIq0Hc+Se8kgf2G2n6syzuoMOjUq6JQkDZQ6OB5zlhC3P5u9a65" crossorigin="anonymous">
+
+  
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    .tabs {
+      display: flex;
+      cursor: pointer;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      padding: 12px 30px;
+      margin: 5px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s, color 0.3s;
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    .tab:hover {
+      background-color: #e2e6ea;
+    }
+
+    .tab.active {
+      background-color: #007bff;
+      color: white;
+      border-color: #007bff;
+    }
+
+    .tab-content {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .btn {
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .tabs {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    .container {
+      max-width: 900px;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container mt-5">
+    <h1 class="text-center">BFD Global Dashboard</h1>
+
+  
+    <div class="tabs">
+      <div class="tab active" onclick="showTab('monthly')">Emma</div>
+      <div class="tab" onclick="showTab('daily')">Daily Report</div>
+      <div class="tab" onclick="showTab('weekly')">Warehouse</div>
+    </div>
+
+    
+    <div id="monthly" class="tab-content active">
+      <h2>Emma Report</h2>
+      <a href="emma.html">
+        <button class="btn btn-primary">Go to Report</button>
+      </a>
+    </div>
+
+    <div id="daily" class="tab-content">
+      <h2>Daily Report</h2>
+      <a href="daily.html">
+        <button class="btn btn-primary">Go to Report</button>
+      </a>
+    </div>
+
+    <div id="weekly" class="tab-content">
+     <h2>Warehouse Material Stocks</h2>
+      <a href="warehouse.html">
+        <button class="btn btn-primary">Go to Report</button>
+      </a>
+    </div>
+  </div>
+
+ 
+  <script>
+    
+    function showTab(tabId) {
+      const tabContents = document.querySelectorAll('.tab-content');
+      tabContents.forEach(tabContent => {
+        tabContent.classList.remove('active');
+      });
+
+      const tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => {
+        tab.classList.remove('active');
+      });
+
+      document.getElementById(tabId).classList.add('active');
+      const activeTab = Array.from(tabs).find(tab => tab.textContent.toLowerCase() === tabId);
+      activeTab.classList.add('active');
+    }
+
+  
+    function autoSwitchTab(tabId) {
+      setTimeout(() => {
+        showTab(tabId);
+      }, 500);  
+    }
+  </script>
+
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy5oPp3wJr59Fh6vD68v5W2hg5j3+1mRkQAP2V5J" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0Hc+Se8kgf2G2n6syzuoMOjUq6JQkDZQ6OB5zlhC3P5u9a65" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-XgL6ek6t1IbY0Z4a1X2kb57gECWAW2Oa+ZbaqJrZOcKd9/J8rCkmz9S0PbDs5bmA" crossorigin="anonymous"></script>
+</body>
+</html>
